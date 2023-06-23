@@ -57,7 +57,17 @@ For the fine-tuned model I created a custom dataset TweetDataset for the tweets 
 
 As learning rate for the optimizer I used 2e-5, which is small, but for fine tuning a model I deemed it appropriate, since they are sensitive to large changes in their weights.
 
+As batch size for my dataset I used 15. 
 
+I trained the model for 5 epochs. 
+
+For each epoch I calculated the following metrics:
+- Training loss: For each batch I calculated the total loss as sum of the loss for each iteration and devided it by the number of batches for the average loss per epoch
+- Validation Loss: Same as Training Loss but for the validation loop
+- Validation Accuracy: correctly predicted labels of the validation data / total validation data
+- Validation F1-Score: F1 Score of the validation data
+
+After the second Epoch the Training loss was still declining while the Validation Loss started to increase, which means the model started to overfit the training dataset. Yet the Validation F1-Score still increased in the 3. epoch with f1=0.7146.
 
 # Proposed Improvements
 
