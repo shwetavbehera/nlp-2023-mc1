@@ -80,6 +80,7 @@ Even more information can be extracted from the tweets. For example word embeddi
 Using techniques like GridSearch ideal parameters could be identified to improve the model performance.
 
 # Conclusion
+In this project I tried to classify tweets into three sentiment categories: negative, neutral and positive.
+The classification models NB and SVM did not result in robust predictions. By analizing the predicted values vs. the real values, many questions arose regarding model complexity, data quality, noise, syntax and semantics. Using various NLP methods I tried to improve the performance of the models, without any substantial success.
 
-
-# Reflexion
+The fine-tuning of pretrained transformers gave much better results. With an F1-Score of 0.7146 for the validation dataset this transformer outperforms any NB or SVM classifiers. Since there pre-trained models have been trained on large language datasets, they already contain the ability to understand context. By fine-tuning them we created a model that specifically understands the context of our dataset.
