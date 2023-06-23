@@ -1,5 +1,6 @@
 # nlp-2023-mc1
 
+Temporary download Link to finetuned model: https://www.swisstransfer.com/d/54d8f855-e049-4e9c-8f11-05260fa2c9cf
 
 # Introduction
 The goal of this project was to evaluate and compare two different text classification systems (https://spaces.technik.fhnw.ch/spaces/natural-language-processing/aufgaben). The task involved building, training, and evaluating the systems, performing a thorough error analysis, and proposing theories for system improvements.
