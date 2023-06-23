@@ -52,6 +52,13 @@ For the SVM classifier, I utilized the LinearSVC class, which is a linear suppor
 # Error Analysis
 To perform a thorough error analysis, I examined the predictions made by both classifiers on individual test samples. I analyzed cases where the classifiers' predictions differed and explored the reasons behind the misclassifications. I also compared the predictions of each model to identify any patterns or trends that could provide insights into potential improvements.
 
+# Fine-Tuned Transformer
+For the fine-tuned model I created a custom dataset TweetDataset for the tweets and labels. This TweetDataset also includes the processing function defined in the previous chapter (without lemmatizing). The reason being that a bert based language model works better without the noisy characters in a tweet.
+
+As learning rate for the optimizer I used 2e-5, which is small, but for fine tuning a model I deemed it appropriate, since they are sensitive to large changes in their weights.
+
+
+
 # Proposed Improvements
 
 
