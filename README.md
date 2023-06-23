@@ -69,6 +69,8 @@ For each epoch I calculated the following metrics:
 
 After the second Epoch the Training loss was still declining while the Validation Loss started to increase, which means the model started to overfit the training dataset. Yet the Validation F1-Score still increased in the 3. epoch with f1=0.7146.
 
+Here is the final model after all 5 epochs (https://www.swisstransfer.com/d/e076827b-d477-49cd-b932-a83d359aab38).
+
 # Proposed Improvements
 ## Text Preprocessing
 Further advanced Text preprocessing could be done to handle specific cases.
