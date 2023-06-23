@@ -19,7 +19,23 @@ Lastly a distilbert-base-uncased pretrained model from HuggingFace (https://hugg
 # Data Preprocessing
 Initially, no preprocessing of the data was performed while training the first couple of models.
 
-Lateron the Twitter text data was preprocessed to clean and transform the text. The preprocessing steps included removing URLs, usernames, and hashtags, tokenizing the text, removing stopwords and punctuation, and lemmatizing the tokens. These steps aimed to remove noise, standardize the text, and improve the quality of the input data.
+Lateron the Twitter text data was preprocessed to clean and transform the text. The preprocessing included the following steps:
+
+## N-grams
+In order to include some context to each word, I tokenized using n-gram ranges multiple n-gram ranges. The best model was an SVM classifier using an n-gram range of (1,7) without any other preprocessing with an F1-Score of 0.57.
+
+## Stopword removal
+The removal of noise did not result in substantial improvement of the model. With an F1-Score of 0.55 it was a worse strategy than n-grams. This is also understandable, since stopwords seem detremental when analyzing sentiment of a tweet.
+
+## Feature Union
+Using Feature Untion and Pipeline I create a pipeline using feature union, which combines two different TfidfVectorizer transformers with different n-gram ranges and lowercase settings. This experiment did not result in any substatial improvement of the model. This model has an F1-Score of 0.54.
+
+## Processing Tweet
+Even though the tweets are in english, the language of the user is not standard. To standardize the syntax of the tweets to an extent, I created a function to process the tweets and only extract relevant text. The following steps were made:
+- removing URLs, usernames, hashtags, punctuation
+- tokenizing the text using TweetTokenizer
+- lemmatizing the tokens
+These steps aimed to remove noise, standardize the text, and improve the quality of the input data.
 
 # Vectorization
 The text data was vectorized using the TF-IDF (Term Frequency-Inverse Document Frequency) approach. The `TfidfVectorizer` was employed to convert the text data into numerical feature vectors. TF-IDF assigns weights to each term in the corpus based on its frequency in a document and its rarity in the entire corpus. This  allows the models to work with numerical representations of text data, capturing the importance of words in the documents.
