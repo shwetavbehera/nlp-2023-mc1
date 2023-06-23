@@ -16,9 +16,10 @@ SVM, on the other hand, works by mapping the input data into a high-dimensional 
 
 Lastly a distilbert-base-uncased pretrained model from HuggingFace (https://huggingface.co/distilbert-base-uncased) was finetuned with our training data. 
 
-# Data Preprocessing
-Initially, no preprocessing of the data was performed while training the first couple of models.
+# Data Preprocessing and Vectorization
+The text data was vectorized using the TF-IDF (Term Frequency-Inverse Document Frequency) approach. The `TfidfVectorizer` was employed to convert the text data into numerical feature vectors. TF-IDF assigns weights to each term in the corpus based on its frequency in a document and its rarity in the entire corpus. This  allows the models to work with numerical representations of text data, capturing the importance of words in the documents.
 
+Initially, no preprocessing of the data was performed while training the first couple of models.
 Lateron the Twitter text data was preprocessed to clean and transform the text. The preprocessing included the following steps:
 
 ## N-grams
@@ -32,13 +33,12 @@ Using Feature Untion and Pipeline I create a pipeline using feature union, which
 
 ## Processing Tweet
 Even though the tweets are in english, the language of the user is not standard. To standardize the syntax of the tweets to an extent, I created a function to process the tweets and only extract relevant text. The following steps were made:
+
 - removing URLs, usernames, hashtags, punctuation
 - tokenizing the text using TweetTokenizer
 - lemmatizing the tokens
-These steps aimed to remove noise, standardize the text, and improve the quality of the input data.
 
-# Vectorization
-The text data was vectorized using the TF-IDF (Term Frequency-Inverse Document Frequency) approach. The `TfidfVectorizer` was employed to convert the text data into numerical feature vectors. TF-IDF assigns weights to each term in the corpus based on its frequency in a document and its rarity in the entire corpus. This  allows the models to work with numerical representations of text data, capturing the importance of words in the documents.
+These steps aimed to remove noise, standardize the text, and improve the quality of the input data. In reality they did not result in a major improvement of the model. The F1-score with or without lemmatization stayed at 0.56.
 
 # Model Training and Evaluation
 I trained and evaluated both the Naive Bayes and SVM classifiers using the vectorized data. The classifiers were implemented using scikit-learn library. 
