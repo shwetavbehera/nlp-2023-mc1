@@ -70,7 +70,14 @@ For each epoch I calculated the following metrics:
 After the second Epoch the Training loss was still declining while the Validation Loss started to increase, which means the model started to overfit the training dataset. Yet the Validation F1-Score still increased in the 3. epoch with f1=0.7146.
 
 # Proposed Improvements
+## Text Preprocessing
+Further advanced Text preprocessing could be done to handle specific cases.
 
+## Feature Engineering
+Even more information can be extracted from the tweets. For example word embeddings, part-of-speech tags, named entity recognition or sentiment scores could provide the model with more information.
+
+## Hyperparameter tuning
+Using techniques like GridSearch ideal parameters could be identified to improve the model performance.
 
 # Conclusion
 
